@@ -1,6 +1,6 @@
 ## CS231n Assignment #1
 
-详情见 [Assignment #1][http://cs231n.github.io/assignments2017/assignment1/] 
+详情见 [Assignment #1](http://cs231n.github.io/assignments2017/assignment1/)
 
 ### 环境配置
 
@@ -57,7 +57,7 @@ KNN 部分比较简单，主要内容是向量化编程以及熟悉 numpy，对 
     return y_pred
 ```
 
-这里用到了 [np.argsort][https://docs.scipy.org/doc/numpy-1.14.0/reference/generated/numpy.argsort.html]，获取前 k 个最接近的训练样本的 label，以及 [np.bincount][https://docs.scipy.org/doc/numpy-1.13.0/reference/generated/numpy.bincount.html]，获取出现次数最多的 label。
+这里用到了 [np.argsort](https://docs.scipy.org/doc/numpy-1.14.0/reference/generated/numpy.argsort.html)，获取前 k 个最接近的训练样本的 label，以及 [np.bincount](https://docs.scipy.org/doc/numpy-1.13.0/reference/generated/numpy.bincount.html)，获取出现次数最多的 label。
 
 ##### 使用向量化减少一层循环
 
@@ -139,7 +139,7 @@ for k in sorted(k_to_accuracies):
         print('k = %d, accuracy = %f' % (k, accuracy))
 ```
 
-这里用到 np.concatenate 实际上很不优雅，如果有更好的方法欢迎告知。
+这里用到 [np.concatenate](https://docs.scipy.org/doc/numpy-1.14.0/reference/generated/numpy.concatenate.html) 实际上很不优雅，如果有更好的方法欢迎告知。
 
 ### SVM 的训练
 
