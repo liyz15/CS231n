@@ -104,7 +104,7 @@ class TwoLayerNet(object):
     scores = scores / np.sum(scores, axis=1)[:, None]
     loss -= np.sum(np.log(scores[(np.arange(N), y)]))
     loss /= N
-    loss += reg * (np.sum(W2 * W2) + np.sum(b1 * b1) + np.sum(W1 * W1) + np.sum(b2 * b2))
+    loss += reg * 0.5 * (np.sum(W2 * W2) + np.sum(b1 * b1) + np.sum(W1 * W1) + np.sum(b2 * b2))
     #############################################################################
     #                              END OF YOUR CODE                             #
     #############################################################################
@@ -118,14 +118,14 @@ class TwoLayerNet(object):
     #############################################################################
     
     scores[(np.arange(N), y)] -= 1
-    grads['b2'] = np.sum(scores, axis=0) / N + 2.0 * reg * b2
-    grads['W2'] = np.dot(h1.T, scores) / N + 2.0 *  reg * W2
+    grads['b2'] = np.sum(scores, axis=0) / N + reg * b2
+    grads['W2'] = np.dot(h1.T, scores) / N + reg * W2
     dh1 = np.dot(scores, W2.T) / N
     mask = h1 <= 0
     dhdb = dh1
     dhdb[mask] = 0.0
-    grads['b1'] = np.sum(dhdb, axis=0) + 2.0 * reg * b1
-    grads['W1'] = np.dot(X.T, dhdb) + 2.0 * reg * W1
+    grads['b1'] = np.sum(dhdb, axis=0) + reg * b1
+    grads['W1'] = np.dot(X.T, dhdb) + reg * W1
 
     #############################################################################
     #                              END OF YOUR CODE                             #
